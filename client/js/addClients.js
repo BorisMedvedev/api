@@ -37,13 +37,13 @@ export const createModalWindow = () => {
     for (let i = 0; i < contactsType.length; i++) {
       contacts.push({
         type: contactsType[i].innerHTML,
-        value: contactsValueInput[i].value,
+        value: contactsValueInput[i].value.trim(),
       });
     }
 
-    clientObj.name = modalForm.inputName.value;
-    clientObj.surname = modalForm.inputSurname.value;
-    clientObj.lastName = modalForm.inputLastName.value;
+    clientObj.name = modalForm.inputName.value.trim();
+    clientObj.surname = modalForm.inputSurname.value.trim();
+    clientObj.lastName = modalForm.inputLastName.value.trim();
     clientObj.contacts = contacts;
     modalForm.inputName.value = '';
     modalForm.inputSurname.value = '';

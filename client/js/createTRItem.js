@@ -1,4 +1,5 @@
-import {formatDate, formatTime} from './utils.js';
+import {svgDelete, svgPencil} from './svgImg.js';
+import {capitalizeWords, createByType, formatDate, formatTime} from './utils.js';
 
 export const createTRItem = (data) => {
   const itemTR = document.createElement('tr');
@@ -18,17 +19,22 @@ export const createTRItem = (data) => {
   const itemTdActions = document.createElement('td');
   const itemTdActionsBtnEdit = document.createElement('button');
   const itemTdActionsBtnDelete = document.createElement('button');
+  const pencil = document.createElement('span');
+  const svgDel = document.createElement('span');
 
-  itemTdChangesTimeSpan.classList.add('time-span')
-  itemTdTimeSpan.classList.add('time-span')
+
+  itemTdChangesTimeSpan.classList.add('time-span');
+  itemTdTimeSpan.classList.add('time-span');
   itemTdNameSpan.classList.add('item-span');
   itemTdLastNameSpan.classList.add('item-span');
   itemTDIdSpan.classList.add('item-id');
 
-  itemTDIdSpan.textContent = `id: ${data.id.substr(0, 6)}`;
-  itemTdNameSpan.textContent = data.name;
-  itemTdSurNameSpan.textContent = data.surname;
-  itemTdLastNameSpan.textContent = data.lastName;
+  pencil.innerHTML = svgPencil;
+  svgDel.innerHTML = svgDelete;
+  itemTDIdSpan.textContent = data.id.substr(0, 8);
+  itemTdNameSpan.textContent = capitalizeWords(data.name);
+  itemTdSurNameSpan.textContent = capitalizeWords(data.surname);
+  itemTdLastNameSpan.textContent = capitalizeWords(data.lastName);
   itemTdDateSpan.textContent = formatDate(data.createdAt);
   itemTdTimeSpan.textContent = formatTime(data.createdAt);
   itemTdChangesDateSpan.textContent = formatDate(data.updatedAt);
@@ -37,9 +43,17 @@ export const createTRItem = (data) => {
   itemTdActionsBtnEdit.textContent = 'Изменить';
   itemTdActionsBtnDelete.textContent = 'Удалить';
 
-  itemTdActionsBtnEdit.classList.add('btn', 'btn-success');
-  itemTdActionsBtnDelete.classList.add('btn', 'btn-danger');
+  for (const contact of data.contacts) {
+    createByType(contact.type, contact.value, itemTdContacts);
+  }
 
+  itemTdActionsBtnEdit.classList.add('btn-reset');
+  itemTdActionsBtnDelete.classList.add('btn-reset');
+  itemTdActionsBtnEdit.classList.add('btn-pencel');
+  itemTdActionsBtnDelete.classList.add('btn-svgdel');
+
+  itemTdActionsBtnEdit.prepend(pencil);
+  itemTdActionsBtnDelete.prepend(svgDel);
   itemTdFullName.append(itemTdNameSpan, itemTdLastNameSpan, itemTdSurNameSpan);
   itemTdDateCreation.append(itemTdDateSpan, itemTdTimeSpan);
   itemTdChanges.append(itemTdChangesDateSpan, itemTdChangesTimeSpan);

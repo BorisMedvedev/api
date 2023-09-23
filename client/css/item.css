@@ -13,3 +13,15 @@
   margin-left: 5px;
   font-size: 14px;
 }
+
+.btn-pencel,
+.btn-svgdel {
+  transition: color 0.3s;
+}
+
+.btn-pencel:hover {
+  color: var(--firm);
+}
+.btn-svgdel:hover {
+  color: #F06A4D;
+}

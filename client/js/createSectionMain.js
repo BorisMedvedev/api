@@ -33,7 +33,7 @@ export const createSectionMain = () => {
   main.classList.add('main');
   sectionTitle.classList.add('section__title');
   container.classList.add('container', 'section-container');
-  sectionTable.classList.add('table', 'table-primary');
+  sectionTable.classList.add('table');
   addClientBtn.classList.add('btn-reset', 'site-btn', 'add-client');
   addClientBtnSpan.classList.add('addbtn-svg-span');
 

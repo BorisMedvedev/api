@@ -70,6 +70,7 @@
 }
 
 .contact__btn-del {
+  padding: 0;
   position: relative;
   border: 1px #C8C5D1 solid;
   width: 40px;
@@ -114,4 +115,9 @@
 }
 .contact__list li:hover {
   background-color:#E7E5EB;
+}
+
+.close-contact {
+  margin: 0 auto;
+  display: block;
 }

@@ -114,7 +114,7 @@ export const createModalForm = (title) => {
 
     // Если контактов меньше или равно 9, то удаляем класс 'active'
 
-    if (updatedContacts.length === 5) {
+    if (updatedContacts.length === 10) {
       addContactBtn.classList.remove('active');
     }
   });
