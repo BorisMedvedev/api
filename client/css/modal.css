@@ -1,0 +1,57 @@
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: block;
+  animation: fadeIn 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.modal__content {
+  display: block;
+  position: absolute;
+  padding: 25px 30px;
+  background-color: #fff;
+  max-width: 500px;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  box-shadow: 0 0 2px #00000014, 0 4px 8px #00000029;
+  
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 30px;
+  height: 30px;
+  background-image: url('../img/closebtn.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.modal-title {
+  margin: 0;
+  margin-bottom: 30px;
+  color: var(--black, #333);
+  font-size: 24px;
+  font-weight: 700;
+  display: inline-block;
+}

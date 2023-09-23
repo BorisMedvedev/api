@@ -1,0 +1,15 @@
+.item-id {
+  color: #8f8f8f;
+  font-size: 14px;
+}
+
+.item-span {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.time-span {
+  color: #8f8f8f;
+  margin-left: 5px;
+  font-size: 14px;
+}
